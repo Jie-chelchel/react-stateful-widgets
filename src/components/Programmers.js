@@ -25,15 +25,15 @@ export const listOfAwesome = [
 ];
 
 export default function Programmers(props) {
-  const [id, setId] = useState(0);
+  const [id, setId] = useState(null);
 
-  const [programmer, setProgrammer] = useState("");
+  const [programmerList, setProgrammerList] = useState(listOfAwesome);
 
   // We'll have to use the state hook twice, as we need two slices of state.
   // The programmers list on the one hand, and the id of the featured programmer on the other.
 
   const getNameOfFeatured = () => {
-    // setProgrammer(listOfAwesome[Number(id) - 1].name);
+    return;
     // return programmer;
     // Leave this for last!
     // This is NOT an event handler but a helper function. See its usage inside the JSX.
@@ -56,14 +56,12 @@ export default function Programmers(props) {
           /* Nasty bug! We should map over a slice of state, instead of 'listOfAwesome'.
           We might think: "it works, though!" But if the list of programmers is not state,
           we could never add or edit programmers in the future. The list would be a static thing." */
-          listOfAwesome.map((dev) => (
+          programmerList.map((dev) => (
             <div className="programmer" key={dev.id}>
               {dev.name}{" "}
               <button
                 onClick={() => {
-                  console.log(dev.name, dev.id);
-                  setId(+dev.id + 1);
-                  console.log(id);
+                  setId(dev.id);
                   /* in here set the featured id to be dev.id */
                 }}
               >
