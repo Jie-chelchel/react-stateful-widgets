@@ -24,7 +24,7 @@ export const listOfAwesome = [
   { id: "6", name: "Carol Shaw" },
 ];
 
-export default function Programmers(props) {
+export default function Programmers() {
   const [id, setId] = useState(null);
 
   const [programmerList, setProgrammerList] = useState(listOfAwesome);
@@ -33,7 +33,7 @@ export default function Programmers(props) {
   // The programmers list on the one hand, and the id of the featured programmer on the other.
 
   const getNameOfFeatured = () => {
-    return;
+    return programmerList.find((x) => x.id === id).name;
     // return programmer;
     // Leave this for last!
     // This is NOT an event handler but a helper function. See its usage inside the JSX.
