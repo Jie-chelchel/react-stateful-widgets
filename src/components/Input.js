@@ -63,7 +63,7 @@ export default function Input() {
     <div className="widget-input container">
       <h2>Input</h2>
       <div id="output" style={style}>
-        All Caps
+        {inputValue}
       </div>{" "}
       {/* STEP 3 */}
       <div>
